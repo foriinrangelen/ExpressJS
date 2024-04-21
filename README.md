@@ -19,13 +19,14 @@
 - `users.controller.js`
 - 등 controller 파일 추가
 #### Models
-
+- 
 #### Views
+- 
 ### Router 추가하기
-1. Route 폴더생성
-2. express.Router 클래스 이용해서 router 객체생성
-3. router객체에 미들웨어 함수 등록
-4. server.js파일에 경로에 따른 라우터 등록하기
+1. `Routes` 폴더생성
+2. `express.Router` 클래스 이용해서 `router` 객체생성 (`const usersRouter= express.Router();`)
+3. `router`객체에 미들웨어 함수 등록 (`usersRouter.get('/', usersController.getUsers);`)
+4. `server.js`파일에 경로에 따른 라우터 등록하기 (`app.use('/users', usersRouter);`)
 
 
 ### postman www.postman.com/downloads
