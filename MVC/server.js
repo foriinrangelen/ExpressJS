@@ -1,17 +1,11 @@
 const express= require('express');
 
 const PORT= 4000;
-const users= [
-    {
-        id:0,
-        name:'k'
-    },
-    {
-        id:1,
-        name:'y'
-    },
-]
+
+const usersRouter= require('./Routes/users.router')
+const postsRouter= require('./Routes/posts.router')
 const app= express();
+
 // POST요청 처리위한 bodyparser middleware 등록
 app.use(express.json());
 
@@ -22,49 +16,23 @@ app.use((req, res, next)=> {
     next(); // 꼭 next를 해줘야 넘어갈 수 있음
     // 역순으로 돌아올때 여기부터 실행
     const diffTime= Date.now()- start;
-    console.log(`end: ${req.method} ${req.url} ${diffTime}ms`)
-})
-
-// get && '/users' 처리
-app.get('/users', (req, res)=> {
-    res.send(users);
-})
-
-// post && '/users' express.json() 활용하여 POST요청처리
-app.post('/users', (req, res)=> {
-    console.log('req.body.name', req?.body?.name)
-    // 만약 req.body.name가 없다면 (요청시 보내지 않았다면) 응답을하여도 다음로직이 실행되기때문에 에러처리는 무조건 return
-    if(!req.body.name) return res.status(400).json({error: "Missing user name"});
-
-    const newUser= {
-        name:req.body.name,
-        id:users.length,
-    }
-    users.push(newUser);
-    res.json(newUser);
+    // baseUrl을 넣어줘야 제대로 로그가 작동
+    console.log(`end: ${req.method} ${req.baseUrl} ${req.url} ${diffTime}ms`)
 })
 
 
-// get && '/users/1' 처리
-// ✅req.params 사용하기
-// ✅url의 :userId 부분이 req.prrams의 userId에 담긴다
-app.get('/users/:userId', (req, res)=> {
-    // url :userId 파싱하기
-    const userId= Number(req.params.userId);
-    const user= users[userId];
-    if(user) res.json( user );
-    else res.sendStatus( 404 );
-    
-});
+
+// 라우터 등록해서 요청에맞는 url에 라우터파일로 보내기
+app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
 
 
-// get '/' 처리
+
+
 // ✅ express는 http와 다르게 자동으로 status와 content type을 지정해준다
 app.get('/', (req, res)=> {
     res.send('Hello World');
 })
-
-
 
 app.listen(PORT, ()=> {
     console.log(`Running on port ${PORT}`);
