@@ -1,8 +1,8 @@
-### ExpressJS 프로젝트 시작하기
-1. 폴더 생성
-2. `npm init -y`
-3. `npm install express`
-4. create `server.js`
+# ExpressJS 프로젝트 시작하기
+#### 1. 폴더 생성
+#### 2. `npm init -y`
+#### 3. `npm install express`
+#### 4. create `server.js`
 ### nodemon 설치
 `npm install -D nodemon`
 ```json
@@ -12,4 +12,12 @@
     "dev":"nodemon server.js"
   },
 ```
+## ExpressJS Project MVC Pattern 으로 변경
+### MVC폴더 생성 ( controllers, models, views )
+#### controllers
+- `posts.controller.js`
+- `users.controller.js`
+#### models
+#### views
+
 ### postman www.postman.com/downloads
