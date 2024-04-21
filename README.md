@@ -1,4 +1,4 @@
-### ExpressJS 프로젝트 시작하기
+# ExpressJS 프로젝트 시작하기
 1. 폴더 생성
 2. `npm init -y`
 3. `npm install express`
@@ -12,4 +12,14 @@
     "dev":"nodemon server.js"
   },
 ```
+## ExpressJS MVC Pattern 으로 변경
+### MVC 폴더들 생성( Controllers, Nodels, Views )
+#### Controllers
+- `posts.controller.js`
+- `users.controller.js`
+#### Models
+
+#### Views
+  
+
 ### postman www.postman.com/downloads
