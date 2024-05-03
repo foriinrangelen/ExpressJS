@@ -1,3 +1,4 @@
+
 #### postman www.postman.com/downloads
 ## ExpressJS 프로젝트 시작하기
 1. 폴더 생성
@@ -14,7 +15,9 @@
   },
 ```
 ## ExpressJS MVC Pattern 으로 변경
-### MVC 폴더들 생성( Controllers, Nodels, Views )
+### 1. flow
+client요청 > `app.use('/users', usersRouter);` > `users.router.js` > `users.controller.js 에 등록된 method 실행`
+### 2.  MVC 폴더들 생성( Controllers, Nodels, Views )
 #### Controllers
 - `posts.controller.js`
 - `users.controller.js`
