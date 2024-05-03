@@ -16,7 +16,7 @@
 ```
 ## ExpressJS MVC Pattern 으로 변경
 ### 1. flow
-client요청 > `app.use('/users', usersRouter);` > `users.router.js` > `users.controller.js 에 등록된 method 실행`
+client요청 > `app.use('/users', usersRouter);` > `Routes/users.router.js` >  `Controllers/users.controller.js` > `Models/users.model.js` > business logic 수행 후 response(view)
 ### 2.  MVC 폴더들 생성( Controllers, Nodels, Views )
 #### Controllers
 - `posts.controller.js`
