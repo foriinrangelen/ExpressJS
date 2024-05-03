@@ -4,8 +4,12 @@ const PORT= 4000;
 
 const usersRouter= require('./Routes/users.router')
 const postsRouter= require('./Routes/posts.router')
-const app= express();
 const path= require('path');
+const app= express();
+ // 특정엔진 템플릿 엔진으로 사용하기 위한 설정; 
+app.set('view engine', 'hbs')
+ // view 파일들이 모여있는 폴더 명시
+app.set('views', path.join(__dirname, 'views'))
 // POST요청 처리위한 bodyparser middleware 등록
 app.use(express.json());
 // 정적 디렉토리 등록
@@ -34,7 +38,10 @@ app.use('/posts', postsRouter);
 
 // ✅ express는 http와 다르게 자동으로 status와 content type을 지정해준다
 app.get('/', (req, res)=> {
-    res.send('Hello World');
+    // res.send('Hello World');
+    res.render('index',{
+        imageTitle:"It is a forestttt"
+    })
 })
 
 app.listen(PORT, ()=> {
