@@ -5,10 +5,13 @@ const PORT= 4000;
 const usersRouter= require('./Routes/users.router')
 const postsRouter= require('./Routes/posts.router')
 const app= express();
-
+const path= require('path');
 // POST요청 처리위한 bodyparser middleware 등록
 app.use(express.json());
-
+// 정적 디렉토리 등록
+// app.use(express.static('public'));
+// app.use('/static', express.static('public')); 옵션으로 /static처럼 가상경로 지정가능(실제 존재x)
+app.use('/static', express.static(path.join(__dirname, 'public'))); // 가상경로+ 절대경로 조합해서 사용하는게 좋음
 // 클라이언트 로그남기는 미들웨어 생성해보기& 왕복 시간 체크해보기
 app.use((req, res, next)=> {
     const start= Date.now();

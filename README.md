@@ -30,6 +30,7 @@
 4. `server.js`파일에 경로에 따른 라우터 등록하기 (`app.use('/users', usersRouter);`)
 
 ### 파일 전송하기(res.sendFile)
+1. 정적인 파일 보관할 폴더생성(`public/images`)
 ```javascript
 function getPost(res, req){
   res.sendFile(path.join(__dirname,'..','public','images','forest.jepg'))
@@ -38,4 +39,8 @@ function getPost(res, req){
 // 2. __dirname: 현재 실행하는 파일의 절대 경로
 // 3. '..': 디렉토리 밖으로 한칸이동
 
+```
+### express.static()- 정적파일 제공하기
+```javascript
+app.use(express.static('public')) // public 디렉토리 안에있는 파일제공위해 미들웨어 등록
 ```
