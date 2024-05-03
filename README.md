@@ -44,3 +44,8 @@ function getPost(res, req){
 ```javascript
 app.use(express.static('public')) // public 디렉토리 안에있는 파일제공위해 미들웨어 등록
 ```
+
+### 템플릿 엔진사용해보기(hbs)
+1. `npm i hbs`
+2. `app.set('view engine', 'hbs') // 특정엔진 템플릿 엔진으로 사용하기 위한 설정`; 
+3. `app.set('views', path,join(__dirname, 'views')) // view 파일들이 모여있는 폴더 명시`
