@@ -67,7 +67,7 @@ app.get('/', (req, res)=> {
 
 
 app.listen(PORT, ()=> {
-    console.log(`Running on port ${PORT}`);
+    console.log(`Running on port ${PORT}`); 
 })
 
 // ✅ res.json() vs res.send() 의차이
