@@ -1,4 +1,5 @@
-# ExpressJS 프로젝트 시작하기
+#### postman www.postman.com/downloads
+## ExpressJS 프로젝트 시작하기
 1. 폴더 생성
 2. `npm init -y`
 3. `npm install express`
@@ -28,5 +29,13 @@
 3. `router`객체에 미들웨어 함수 등록 (`usersRouter.get('/', usersController.getUsers);`)
 4. `server.js`파일에 경로에 따른 라우터 등록하기 (`app.use('/users', usersRouter);`)
 
+### 파일 전송하기(res.sendFile)
+```javascript
+function getPost(res, req){
+  res.sendFile(path.join(__dirname,'..','public','images','forest.jepg'))
+}
+// 1. path.join() 하나의 경로로 조합 method
+// 2. __dirname: 현재 실행하는 파일의 절대 경로
+// 3. '..': 디렉토리 밖으로 한칸이동
 
-### postman www.postman.com/downloads
+```
